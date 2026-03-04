@@ -46,6 +46,13 @@ nav ul li a {
   background: #fff;
   box-shadow: 0 2px 5px #4a54b4ad;
 }
+/* efecto hover de proyectos */
+.proyecto-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px #4a54b4bb;
+    cursor: pointer;
+}
 /*selector de ID selecciona el elemento con id="proyectos"*/
 #contenedor-proyectos {
   display: flex;

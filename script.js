@@ -32,10 +32,10 @@ EmpezarDia(); //se ejecuta la función EmpezarDia, que a su vez ejecutará Banar
 
 
 
-const botonproyectos = document.getElementById("verProyectos");
+const botonproyectos = document.getElementById("botonproyectos");
 function mostrarProyectos() {
     const proyectos = document.getElementById("proyectos");
-    proyectosSection.scrollIntoView({ behavior: "smooth" });
+    proyectos.scrollIntoView({ behavior: "smooth" });
 }
 botonproyectos.addEventListener("click", mostrarProyectos);
 
@@ -66,3 +66,52 @@ todaslastarjetas.forEach(tarjeta => {
         alert("Haz hecho clic en el proyecto: " + nombreproyecto);
     });
 });
+//EJEMPLO CAMBIAR COLOR DE FONDO DE LA TARJETA AL HACER HOVER
+const tarjetas = document.querySelectorAll(".proyecto-card");
+
+tarjetas.forEach(tarjeta => {
+    tarjeta.addEventListener("mouseenter", () => {
+        tarjeta.style.backgroundColor = "#560a81"; // color claro al pasar mouse
+    });
+    tarjeta.addEventListener("mouseleave", () => {
+        tarjeta.style.backgroundColor = ""; // vuelve al color original
+    });
+});
+
+///variables: let (que puede cambiar)  - const (es fijo que no cambia)
+const nombreDev= "Pedro Roda"; // fijo  no cambia
+//let proyectosCompletados = 4; // puede aumentar o disminuir  o variar en el tiempo  dependiendo del scope
+ 
+// tipos primitivos
+let esInstructor = true; // boolean
+let edad = 34;  //number
+let saludo = "Hola soy Pedro Roda" //string
+ 
+// tipos de datos complejos
+let habilidades = ["JavaScript", "HTML", "CSS"];
+let experiencia = {
+    años: 10,
+    empresas: ["Google", "Facebook", "Amazon"]
+};
+ 
+const proyectoNuevo = {
+    nombre: "Portafolio Personal",
+    descripcion: "Un sitio web para mostrar mis proyectos y habilidades.",
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    completado: false
+};
+
+// Entender la visibilidad de las variables  y las memoria de las funciones
+
+function crearcontadordeproyectos() {
+    let contador = inicial; // variable privada  gracias al closure  no es accesible desde fuera de la función crearcontadordeproyectos
+    
+    return {
+        incrementar: function() {
+        contador++; // incrementa el contador cada vez que se llama a la función interna
+        return `ahora tienes ${contador} proyectos completados`; // devuelve el mensaje con el contador actualizado 
+    },
+    obtenertotal: () => contador // función para obtener el valor actual del contador sin modificarlo
+};
+}  
+const miContador = crearcontadordeproyectos(4); // se crea una instancia del contador de proyectos
